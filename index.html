@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+
+        <title>Hello, world!</title>
+        <style>
+            body{
+                padding: 50px;
+            }
+            h1{
+                text-align: center;
+                background-color: #0067B0;
+                margin-bottom: 0;
+                color: white;
+                padding: 10px;
+            }
+            textarea{
+                resize: none;
+                width: 93.45vw;
+                border: 2px solid #0067B0;
+            }
+            textbox{
+                font-size: 25px;
+            }
+            p{
+                margin-top: 0px;
+                padding: 10px;
+                color: white;
+                background-color: #0067B0;
+                text-align: center;
+                font-size: 25px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Word and Character Counter</h1>
+        <textarea id="textbox" cols="30" rows="10"></textarea>
+        <p><span id="word">0</span> Word <span id="char">0</span> Character</p>
+        
+        <script>
+            let textbox = document.getElementById("textbox");
+           
+            textbox.addEventListener('input', function(){
+                let text = this.value;
+                let char = text.length;
+                document.getElementById("char").innerHTML = char;
+                
+                text = text.trim();
+                let word = text.split(" ");
+                let cleanlist = word.filter(function(elm){
+                    return elm != "";
+                });
+                document.getElementById("word").innerHTML = cleanlist.length;
+            });
+        </script>
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
+
+    </body>
+</html>
